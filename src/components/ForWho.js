@@ -5,34 +5,29 @@ const ForWho = () => {
   const businessTypes = [
     {
       icon: "🍽️",
-      title: "Restaurants & Eateries",
+      title: "Restaurants & Bars",
       description: "Reward regulars, drive repeat dining"
     },
     {
       icon: "🛒",
-      title: "Supermarkets & Retail Stores",
+      title: "Supermarkets & Minimarkets",
       description: "Turn shoppers into loyal customers"
-    },
-    {
-      icon: "🍸",
-      title: "Bars & Lounges",
-      description: "Keep weekend crowds coming back"
     },
     {
       icon: "💇",
       title: "Salons & Spas",
       description: "Encourage repeat bookings and referrals"
     },
-    {
-      icon: "🏪",
-      title: "Convenience Stores",
-      description: "Build loyalty with daily customers"
-    },
-    {
-      icon: "☕",
-      title: "Cafés & Bakeries",
-      description: "Reward frequent visitors"
-    }
+    // {
+    //   icon: "🏪",
+    //   title: "Convenience Stores",
+    //   description: "Build loyalty with daily customers"
+    // },
+    // {
+    //   icon: "☕",
+    //   title: "Cafés & Bakeries",
+    //   description: "Reward frequent visitors"
+    // }
   ];
 
   return (
@@ -40,8 +35,8 @@ const ForWho = () => {
       <div className="container mx-auto px-4 md:px-8">
         <motion.div 
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -56,12 +51,12 @@ const ForWho = () => {
             <motion.div 
               key={index}
               className="border border-[#f0d8df] rounded-xl p-6 hover:border-[#6c0f2a] transition-colors"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ 
-                y: -10,
+                scale: 1.05,
                 boxShadow: "0 10px 25px -5px rgba(108, 15, 42, 0.1)"
               }}
             >
@@ -74,8 +69,8 @@ const ForWho = () => {
         
         <motion.div 
           className="mt-16 bg-gradient-to-r from-[#6c0f2a] to-[#d32f2f] rounded-2xl p-8 text-white text-center"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >

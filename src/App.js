@@ -5,10 +5,9 @@ import About from './components/About';
 import HowItWorks from './components/HowItWorks';
 import ForWho from './components/ForWho';
 import Example from './components/Example';
-import WhyWorks from './components/WhyWorks';
+// import WhyWorks from './components/WhyWorks';
 import Pricing from './components/Pricing';
 import Cta from './components/Cta';
-import Partners from './components/Partners';
 import Footer from './components/Footer';
 
 function App() {
@@ -17,13 +16,13 @@ function App() {
       <Header />
       <Hero />
       <About />
-      <HowItWorks />
       <ForWho />
+      <HowItWorks />
+      
       <Example />
-      <WhyWorks />
+      {/* <WhyWorks /> */}
       <Pricing />
       <Cta />
-      <Partners />
       <Footer />
     </div>
   );

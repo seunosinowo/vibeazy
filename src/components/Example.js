@@ -26,16 +26,14 @@ const Example = () => {
                     <strong className="text-[#6c0f2a]">₦30,000</strong>. She scans your QR code after checkout and uploads her receipt.
                   </p>
                   <p>
-                    Instantly, she earns points toward a <strong className="text-[#6c0f2a]">20% discount</strong> — or
-                    maybe even a free meal next time.
+                    Instantly she earns points based on how much she spent and gets an automated{" "}
+                    <strong className="text-green-600">WhatsApp message</strong> each week showing her points.
                   </p>
                   <p>
-                    You now have her contact and can message her via{" "}
-                    <strong className="text-green-600">WhatsApp</strong> with offers or updates.
+                    Your restaurant can reward top point earners with <strong className="text-[#6c0f2a]">discounts or freebies</strong> — encouraging Sarah to come back and spend more. It’s a simple way to drive repeat business.
                   </p>
                   <p>
-                    <strong className="text-[#6c0f2a]">Sarah wants to come back and earn more points.</strong> That
-                    repeat business made easy.
+                    <strong className="text-[#6c0f2a]">Sarah wants to come back and earn more points.</strong> That repeat business made easy.
                   </p>
                 </div>
               </div>

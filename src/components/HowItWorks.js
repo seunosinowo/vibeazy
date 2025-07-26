@@ -35,7 +35,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-[#f9f2f4]">
+    <section className="py-16 bg-gradient-to-b from-white to-[#f9f2f4]">
       <div className="container mx-auto px-4 md:px-8">
         <motion.div 
           className="text-center mb-16"

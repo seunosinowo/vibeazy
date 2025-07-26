@@ -12,13 +12,15 @@ const Pricing = () => {
       period: '/month',
       description: 'Perfect for solo locations just starting out.',
       features: [
-        {text: '1 Branch', included: true},
-        {text: 'Send up to 300 WhatsApp messages/month', included: true},
+        {text: "Track customer's spend", included: true},
+        {text: 'Send up to 500 WhatsApp messages in a campaign', included: true},
         {text: 'Weekly automated message showing spend + points', included: true},
-        {text: 'Promo campaigns', included: false},
+        {text: '1 Branch', included: true},
+        {text: '500 Promo Campaign messages via Whatsapp', included: true},
         {text: 'Account manager', included: false},
         {text: 'Branch performance tracking', included: false},
-        {text: 'Customer segmentation', included: false}
+        {text: 'Customer segmentation', included: false},
+        
       ],
       highlight: false
     },
@@ -29,13 +31,14 @@ const Pricing = () => {
       period: '/month',
       description: 'Great for growing businesses with up to 3 branches.',
       features: [
-        {text: 'Up to 3 Branches', included: true},
-        {text: 'Send up to 500 WhatsApp messages/month', included: true},
+        {text: "Track customer's spend", included: true},
+        {text: 'Send up to 500 WhatsApp messages in a campaign', included: true},
         {text: 'Weekly automated spend + point summaries', included: true},
-        {text: 'Unlimited promo campaign messages', included: true},
+        {text: 'Up to 3 Branches', included: true},
+        {text: '500 Promo Campaign messages via Whatsapp', included: true},
         {text: 'Full dashboard access', included: true},
-        {text: 'Track customer spend', included: true},
-        {text: 'Branch-level performance insights', included: true}
+        {text: 'Branch-level performance insights', included: true},
+        {text: 'Customer segmentation', included: true},
       ],
       highlight: true
     },
@@ -46,10 +49,11 @@ const Pricing = () => {
       period: '/month',
       description: 'For larger businesses with unlimited branches.',
       features: [
-        {text: 'Unlimited Branches', included: true},
-        {text: 'Send up to 750 WhatsApp messages/month', included: true},
+        {text: "Track customer's spend", included: true},
+        {text: 'Send up to 500 WhatsApp messages in a campaign', included: true},
         {text: 'Weekly automated spend + point summaries', included: true},
-        {text: 'Unlimited promo campaigns', included: true},
+        {text: 'Unlimited Branches', included: true},
+        {text: '500 Promo Campaign messages via Whatsapp', included: true},
         {text: 'Full dashboard access', included: true},
         {text: 'Branch-level performance tracking', included: true},
         {text: 'Customer segmentation', included: true},

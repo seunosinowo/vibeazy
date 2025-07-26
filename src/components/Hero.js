@@ -2,6 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
+  // Consolidated business types
+  const businessTypes = [
+    'Restaurants & Bars',
+    'Supermarkets',
+    'Salons',
+    'Spas',
+  ];
+
   return (
     <section className="pt-24 pb-16 md:pt-36 md:pb-24 relative bg-gradient-to-br from-[#f9f2f4] to-white">
       <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center">
@@ -26,7 +34,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Track your customers' spending. Reward top customers. Sell more.
+            Track spending. Reward customers. Sell more.
           </motion.h2>
           
           <motion.div 
@@ -35,25 +43,27 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
           >
-            {['Restaurants', 'Super Markets', 'Stores', 'Lounges', 'Bars', 'Salons', 'Spas'].map((item, index) => (
-              <span 
-                key={index} 
+            {businessTypes.map((item, index) => (
+              <motion.span 
+                key={index}
                 className="px-3 py-1.5 bg-[#f8e5ea] text-[#6c0f2a] rounded-full text-sm font-medium"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 {item}
-              </span>
+              </motion.span>
             ))}
           </motion.div>
           
           <motion.button 
             className="px-8 py-3.5 bg-gradient-to-r from-[#6c0f2a] to-[#d32f2f] text-white font-bold rounded-lg text-lg hover:opacity-90 transition-opacity shadow-lg"
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(108, 15, 42, 0.3)" }}
             whileTap={{ scale: 0.98 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9 }}
           >
-            Join Vibeazy
+            Get started
           </motion.button>
         </motion.div>
         
@@ -63,45 +73,80 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
-          <div className="relative flex flex-col md:flex-row items-center justify-center gap-6">
-            {/* First image - Customer scanning QR code */}
+          <div className="grid grid-cols-2 gap-3 md:gap-4 w-full max-w-md">
+            {/* Image 1 - Restaurant */}
             <motion.div 
-              className="relative rounded-2xl overflow-hidden shadow-xl"
-              initial={{ y: 20, rotate: -3 }}
-              animate={{ y: 0, rotate: 0 }}
-              transition={{ delay: 0.6 }}
+              className="relative rounded-xl overflow-hidden shadow-lg aspect-square"
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              whileHover={{ scale: 1.05, zIndex: 10 }}
             >
-              <div className="w-64 h-64 md:w-72 md:h-72 bg-gray-200 border-2 border-dashed rounded-xl flex items-center justify-center relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  className="w-full h-full object-cover"
-                  alt="Menu"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-2 text-center text-sm w-full">
-                  Scan. Earn. Repeat.
-                </div>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                alt="Restaurant"
+                className="w-full h-full object-cover"
+              />
             </motion.div>
             
-            {/* Second image - Dashboard interface */}
+            {/* Image 2 - Retail Store */}
             <motion.div 
-              className="relative rounded-2xl overflow-hidden shadow-xl"
-              initial={{ y: -20, rotate: 3 }}
-              animate={{ y: 0, rotate: 0 }}
-              transition={{ delay: 0.8 }}
+              className="rounded-xl overflow-hidden shadow-lg aspect-square"
+              initial={{ opacity: 0, y: -20, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+              whileHover={{ scale: 1.05, zIndex: 10 }}
             >
-              <div className="w-64 h-64 md:w-72 md:h-72 bg-gray-200 border-2 border-dashed rounded-xl flex items-center justify-center relative">
-                
-                <img 
-                  src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                  alt="Food"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-2 text-center text-sm w-full">
-                  Track. Reward. Grow.
-                </div>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                alt="Retail Store"
+                className="w-full h-full object-cover"
+              />
             </motion.div>
+            
+            {/* Image 3 - Lounge */}
+            <motion.div 
+              className="rounded-xl overflow-hidden shadow-lg aspect-square"
+              initial={{ opacity: 0, x: -20, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+              whileHover={{ scale: 1.05, zIndex: 10 }}
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                alt="Lounge"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+            
+            {/* Image 4 - Supermarket */}
+            <motion.div 
+              className="rounded-xl overflow-hidden shadow-lg aspect-square"
+              initial={{ opacity: 0, x: 20, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ delay: 0.9, duration: 0.5 }}
+              whileHover={{ scale: 1.05, zIndex: 10 }}
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1515&q=80" 
+                alt="Supermarket"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+            
+            {/* Decorative elements */}
+            <motion.div 
+              className="-top-4 -right-4 w-24 h-24 bg-[#f8e5ea] rounded-full z-[-1]"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 1.2 }}
+            />
+            <motion.div 
+              className="-bottom-4 -left-4 w-20 h-20 bg-[#f8e5ea] rounded-full z-[-1]"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 1.4 }}
+            />
           </div>
         </motion.div>
       </div>
