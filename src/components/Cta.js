@@ -19,7 +19,7 @@ const Cta = () => {
           
           <div className="flex justify-center">
             <motion.a 
-              href="https://wa.me/+2348123456789" 
+              href="https://wa.me/+2348056679806" 
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block"
