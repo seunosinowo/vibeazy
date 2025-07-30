@@ -13,7 +13,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-sm py-1' : 'bg-transparent py-3'}`}>
+    <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-sm py-1' : 'bg-transparent py-3'} min-h-[72px]`}> 
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center"> {/* Reduced horizontal padding */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}

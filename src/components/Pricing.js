@@ -23,7 +23,7 @@ const Pricing = () => {
     {
       id: 'growth',
       name: 'Growth Plan',
-      price: '₦149,999',
+      price: '₦99,999',
       period: '/month',
       description: 'Great for growing businesses with up to 500 customers.',
       features: [      
@@ -31,16 +31,15 @@ const Pricing = () => {
         {text: 'Identify and reward top spenders', included: true},
         {text: 'View customer insights: number of visits, total spend, etc.', included: true},
         {text: 'Send up to 1000 whatsapp promo messages per month', included: true},
-        {text: '3 branch only', included: true},
+        {text: '3 branches only', included: true},
         {text: 'Segment customers better using dashboard filters', included: true},
-        {text: 'Get message templates for promos and loyalty offers', included: true},
       ],
       highlight: true
     },
     {
       id: 'business',
       name: 'Business Plan',
-      price: '₦299,999',
+      price: '₦199,999',
       period: '/month',
       description: 'For larger businesses with up to 1000 customers.',
       features: [
@@ -48,9 +47,10 @@ const Pricing = () => {
         {text: 'Identify and reward top spenders', included: true},
         {text: 'View customer insights: number of visits, total spend, etc.', included: true},
         {text: 'Send up to 1500 whatsapp promo messages per month', included: true},
-        {text: '3 branch only', included: true},
+        {text: 'Unlimited branches', included: true},
         {text: 'Segment customers better using dashboard filters', included: true},
-        {text: 'Get message templates for promos and loyalty offers', included: true},
+        {text: 'Priority support', included: true},
+        {text: 'Dedicated account manager', included: true},
       ],
       highlight: false
     }
@@ -119,13 +119,15 @@ const Pricing = () => {
                 <div className="bg-white p-6 pt-0">
                   <button 
                     className={`w-full py-3 rounded-lg font-medium text-base ${
-                      plan.highlight 
-                        ? 'bg-[#6c0f2a] text-white hover:bg-[#5a0d23]' 
-                        : 'bg-[#f8e5ea] text-[#6c0f2a] hover:bg-[#f0d8df]'
+                      selectedPlan === plan.id
+                        ? 'bg-[#6c0f2a] text-white hover:bg-[#5a0d23] border-2 border-[#6c0f2a]'
+                        : plan.highlight 
+                          ? 'bg-[#6c0f2a] text-white hover:bg-[#5a0d23]'
+                          : 'bg-[#f8e5ea] text-[#6c0f2a] hover:bg-[#f0d8df]'
                     }`}
                     onClick={() => setSelectedPlan(plan.id)}
                   >
-                    Select Plan
+                    {selectedPlan === plan.id ? 'Selected' : 'Select Plan'}
                   </button>
                 </div>
               </div>

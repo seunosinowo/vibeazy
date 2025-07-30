@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
-  // Consolidated business types
   const businessTypes = [
     'Restaurants & Bars',
     'Supermarkets',
@@ -11,12 +10,12 @@ const Hero = () => {
   ];
 
   return (
-    <section className="pt-24 pb-16 md:pt-36 md:pb-24 relative bg-gradient-to-br from-[#f9f2f4] to-white">
-      <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center">
+    <section className="min-h-screen flex items-center relative bg-gradient-to-br from-[#f9f2f4] to-white overflow-hidden pt-[72px] md:pt-0">
+      <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between w-full">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, type: 'spring', stiffness: 80 }}
           className="md:w-1/2 mb-10 md:mb-0"
         >
           <motion.h1 
@@ -69,83 +68,84 @@ const Hero = () => {
         
         <motion.div 
           className="md:w-1/2 flex justify-center mt-10 md:mt-0"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, type: 'spring', stiffness: 80, delay: 0.2 }}
         >
-          <div className="grid grid-cols-2 gap-3 md:gap-4 w-full max-w-md">
-            {/* Image 1 - Restaurant */}
+          <div className="relative w-full max-w-xs md:max-w-sm lg:max-w-md grid grid-cols-2 gap-4 items-center justify-center">
+            {/* 4 images in a 2x2 grid, all same size, with animation and overlap */}
             <motion.div 
-              className="relative rounded-xl overflow-hidden shadow-lg aspect-square"
-              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              className="relative aspect-square w-32 md:w-40 lg:w-48 flex items-center justify-center shadow-2xl rounded-2xl border-2 border-[#d32f2f]/20 bg-white"
+              initial={{ opacity: 0, y: 40, scale: 0.92 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              whileHover={{ scale: 1.05, zIndex: 10 }}
+              transition={{ delay: 0.5, duration: 0.7, type: 'spring', stiffness: 90 }}
+              whileHover={{ scale: 1.06, rotate: 1 }}
+              style={{ zIndex: 2 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                src="/Restaurants.webp" 
                 alt="Restaurant"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-2xl"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl pointer-events-none"></div>
             </motion.div>
-            
-            {/* Image 2 - Retail Store */}
             <motion.div 
-              className="rounded-xl overflow-hidden shadow-lg aspect-square"
-              initial={{ opacity: 0, y: -20, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              whileHover={{ scale: 1.05, zIndex: 10 }}
+              className="relative aspect-square w-32 md:w-40 lg:w-48 flex items-center justify-center shadow-xl rounded-2xl border-2 border-[#6c0f2a]/20 bg-white"
+              initial={{ opacity: 0, x: 60, y: 30, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+              transition={{ delay: 0.8, duration: 0.7, type: 'spring', stiffness: 90 }}
+              whileHover={{ scale: 1.08, rotate: -3 }}
+              style={{ zIndex: 3 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                src="/spas.webp" 
                 alt="Retail Store"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-2xl"
               />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-transparent rounded-2xl pointer-events-none"></div>
             </motion.div>
-            
-            {/* Image 3 - Lounge */}
             <motion.div 
-              className="rounded-xl overflow-hidden shadow-lg aspect-square"
-              initial={{ opacity: 0, x: -20, scale: 0.9 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
-              whileHover={{ scale: 1.05, zIndex: 10 }}
+              className="relative aspect-square w-32 md:w-40 lg:w-48 flex items-center justify-center shadow-xl rounded-2xl border-2 border-[#d32f2f]/20 bg-white"
+              initial={{ opacity: 0, x: -60, y: 30, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+              transition={{ delay: 1.0, duration: 0.7, type: 'spring', stiffness: 90 }}
+              whileHover={{ scale: 1.08, rotate: 3 }}
+              style={{ zIndex: 3 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                src="/Salons.webp" 
                 alt="Lounge"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-2xl"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl pointer-events-none"></div>
             </motion.div>
-            
-            {/* Image 4 - Supermarket */}
             <motion.div 
-              className="rounded-xl overflow-hidden shadow-lg aspect-square"
-              initial={{ opacity: 0, x: 20, scale: 0.9 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ delay: 0.9, duration: 0.5 }}
-              whileHover={{ scale: 1.05, zIndex: 10 }}
+              className="relative aspect-square w-32 md:w-40 lg:w-48 flex items-center justify-center shadow-xl rounded-2xl border-2 border-[#6c0f2a]/20 bg-white"
+              initial={{ opacity: 0, x: 40, y: -30, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+              transition={{ delay: 1.2, duration: 0.7, type: 'spring', stiffness: 90 }}
+              whileHover={{ scale: 1.08, rotate: -2 }}
+              style={{ zIndex: 2 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1515&q=80" 
+                src="/Supermarkets.webp" 
                 alt="Supermarket"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-2xl"
               />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-transparent rounded-2xl pointer-events-none"></div>
             </motion.div>
-            
             {/* Decorative elements */}
             <motion.div 
-              className="-top-4 -right-4 w-24 h-24 bg-[#f8e5ea] rounded-full z-[-1]"
+              className="absolute top-2 -right-6 w-14 h-14 bg-[#f8e5ea] rounded-full z-[-1]"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ delay: 1.2 }}
+              transition={{ delay: 1.0, type: 'spring', stiffness: 60 }}
             />
             <motion.div 
-              className="-bottom-4 -left-4 w-20 h-20 bg-[#f8e5ea] rounded-full z-[-1]"
+              className="absolute bottom-2 -left-6 w-10 h-10 bg-[#f8e5ea] rounded-full z-[-1]"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ delay: 1.4 }}
+              transition={{ delay: 1.2, type: 'spring', stiffness: 60 }}
             />
           </div>
         </motion.div>
