@@ -23,7 +23,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Vibeazy helps you track how much your customers are spending, reward your top customers, and drive repeat visits — all without changing your payment system or asking customers to download an app.
+            Vibeazy helps you track how much your customers are spending, reward your top customers, and make more sales — all without changing your payment system or asking customers to download an app.
           </motion.p>
           
           <motion.p 

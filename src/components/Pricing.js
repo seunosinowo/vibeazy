@@ -12,12 +12,11 @@ const Pricing = () => {
       period: '/month',
       description: 'Perfect for business with up to 100 customers',
       features: [
-        {text: "Track customers spending", included: true},
-        {text: 'Send up to 200 Promo Campaign messages via Whatsapp', included: true},
-        {text: 'Monthly automated message showing spend and points to customers', included: true},
-        {text: '1 Branch', included: true},
-        {text: 'Full dashboard access', included: true},
-        
+        {text: 'Access to customer dashboard with spending data', included: true},
+        {text: 'Identify and reward top spenders', included: true},
+        {text: 'View customer insights: number of visits, total spend, etc.', included: true},
+        {text: 'Send up to 300 whatsapp promo messages per month', included: true},
+        {text: '1 branch only', included: true},
       ],
       highlight: false
     },
@@ -27,14 +26,14 @@ const Pricing = () => {
       price: '₦149,999',
       period: '/month',
       description: 'Great for growing businesses with up to 500 customers.',
-      features: [
-        {text: "Track customers spending", included: true},
-        {text: 'Send up to 1000 Promo Campaign messages via Whatsapp', included: true},
-        {text: 'Monthly automated message showing spend and points to customers', included: true},
-        {text: 'Up to 3 Branches', included: true},
-        {text: 'Full dashboard access', included: true},
-        {text: 'Branch-level performance insights', included: true},
-        {text: 'Customer segmentation', included: true},
+      features: [      
+        {text: 'Access to customer dashboard with spending data', included: true},
+        {text: 'Identify and reward top spenders', included: true},
+        {text: 'View customer insights: number of visits, total spend, etc.', included: true},
+        {text: 'Send up to 1000 whatsapp promo messages per month', included: true},
+        {text: '3 branch only', included: true},
+        {text: 'Segment customers better using dashboard filters', included: true},
+        {text: 'Get message templates for promos and loyalty offers', included: true},
       ],
       highlight: true
     },
@@ -45,13 +44,13 @@ const Pricing = () => {
       period: '/month',
       description: 'For larger businesses with up to 1000 customers.',
       features: [
-        {text: "Track customers spending", included: true},
-        {text: 'Send up to 2000 Promo Campaign messages via Whatsapp', included: true},
-        {text: 'Monthly automated message showing spend and points to customers', included: true},
-        {text: 'Unlimited Branches', included: true},
-        {text: 'Full dashboard access', included: true},
-        {text: 'Branch-level performance tracking', included: true},
-        {text: 'Customer segmentation', included: true},
+        {text: 'Access to customer dashboard with spending data', included: true},
+        {text: 'Identify and reward top spenders', included: true},
+        {text: 'View customer insights: number of visits, total spend, etc.', included: true},
+        {text: 'Send up to 1500 whatsapp promo messages per month', included: true},
+        {text: '3 branch only', included: true},
+        {text: 'Segment customers better using dashboard filters', included: true},
+        {text: 'Get message templates for promos and loyalty offers', included: true},
       ],
       highlight: false
     }

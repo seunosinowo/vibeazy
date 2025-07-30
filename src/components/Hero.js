@@ -25,7 +25,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            Make your customers <span className="text-[#d32f2f]">spend more</span>
+          Make Your Top Customers <span className="text-[#d32f2f]">Spend More</span>
           </motion.h1>
           
           <motion.h2 

@@ -6,31 +6,31 @@ const HowItWorks = () => {
   const steps = [
     {
       title: "Sign up your business",
-      description: "Get started in minutes with a simple setup process"
+      description: "Get started in minutes with a simple setup process."
     },
     {
       title: "Generate your QR code",
-      description: "Create a unique QR code from your dashboard"
+      description: "Create a unique QR code from your dashboard."
     },
     {
       title: "Place QR code at venue",
-      description: "Display it prominently at counters, tables, or on receipts"
+      description: "Display it prominently at counters, tables, or on receipts."
     },
     {
       title: "Customers scan & upload",
-      description: "Customers scan, upload receipt, and enter phone number"
+      description: "Customers scan, upload receipt, and enter phone number."
     },
     {
       title: "Track spending automatically",
-      description: "Identify your top spenders effortlessly"
+      description: "Identify your top spenders effortlessly."
     },
     {
-      title: "Reach customers on WhatsApp",
-      description: "Contact customers directly from your dashboard"
+      title: "Reward your top spenders",
+      description: "Offer deals to your customers on Whatsapp directly from your dashboard."
     },
     {
-      title: "Create promo campaigns",
-      description: "Reward loyal customers and drive repeat visits"
+      title: "Make more sales",
+      description: "When you reward your top spenders, they spend more."
     }
   ];
 
