@@ -21,18 +21,21 @@ const Example = () => {
               <h2 className="text-3xl font-bold mb-8 text-[#6c0f2a] text-center">See Vibeazy in Action</h2>
               <div className="space-y-6 text-gray-600 bg-white p-6 md:p-8 rounded-xl shadow-lg">
                 <p className="text-lg">
-                  <strong className="text-[#6c0f2a]">Sarah</strong> visits your restaurant and spends{" "}
-                  <strong className="text-[#6c0f2a]">₦30,000</strong>. She scans your QR code after checkout and uploads her receipt.
+                  Sarah visits your supermarket 10 times a month and spends over <strong className="text-[#6c0f2a]">₦100,000</strong>. But you don’t know Sarah and you’re missing the chance to keep her coming back.
                 </p>
                 <p className="text-lg">
-                  Instantly, she earns points based on how much she spent. She also gets an automated{" "}
-                  <strong className="text-green-600">WhatsApp message</strong> from your restaurant bi-weekly, showing her points.
+                  With Vibeazy, every time Sarah shops, she simply scans your QR code and uploads her receipt. Instantly, her visits and spending show up on your dashboard, along with every other customer’s.
                 </p>
                 <p className="text-lg">
-                  Your restaurant can reward top point earners with <strong className="text-[#6c0f2a]">discounts or freebies</strong> — encouraging Sarah to come back and spend more. It's a simple way to drive repeat business.
+                  Now, you can:
+                  <ul className="list-disc list-inside mt-2 space-y-1 text-left">
+                    <li><strong>Identify your top spenders weekly or monthly</strong></li>
+                    <li><strong>Send them rewards directly via WhatsApp (with verified numbers)</strong></li>
+                    <li><strong>Drive repeat business effortlessly by encouraging loyal customers to spend more</strong></li>
+                  </ul>
                 </p>
                 <p className="text-lg">
-                  <strong className="text-[#6c0f2a]">Sarah wants to come back and earn more points.</strong> That repeat business made easy.
+                  Vibeazy makes it simple to turn hidden shoppers like Sarah into repeat customers who fuel <span className="text-[#6c0f2a]">your growth</span>.
                 </p>
               </div>
             </div>
