@@ -14,21 +14,17 @@ const Pricing = () => {
   };
 
   const getPeriod = (period) => {
-    if (period === 'quarterly') return '/quarter';
-    if (period === 'yearly') return '/year';
+    if (period === 'quarterly') return '/monthly';
+    if (period === 'yearly') return '/monthly';
     return '/month';
   };
 
   const calculateDiscount = (plan, period) => {
     if (plan.id === 'starter' || period === 'monthly') return null;
-    const monthlyPrice = parseInt(plan.price.monthly.replace(/[^\d]/g, ''));
-    const currentPrice = parseInt(plan.price[period].replace(/[^\d]/g, ''));
-    const multiplier = period === 'quarterly' ? 3 : 12;
-    const fullPrice = monthlyPrice * multiplier;
-    if (currentPrice < fullPrice) {
-      const discount = Math.round(((fullPrice - currentPrice) / fullPrice) * 100);
-      return discount > 0 ? discount : null;
-    }
+    if (plan.id === 'growth' && period === 'quarterly') return 7;
+    if (plan.id === 'business' && period === 'quarterly') return 3;
+    if (plan.id === 'growth' && period === 'yearly') return 20;
+    if (plan.id === 'business' && period === 'yearly') return 10;
     return null;
   };
 
@@ -37,11 +33,11 @@ const Pricing = () => {
       id: 'starter',
       name: 'Starter Plan',
       price: {
-        monthly: '₦49,999',
-        quarterly: '₦117,000',
-        yearly: '₦1,404,000'
+        monthly: '₦59,999',
+        quarterly: '₦49,999',
+        yearly: '₦39,999'
       },
-      description: 'Perfect for business with up to 100 customers',
+      description: 'Perfect for small businesses',
       features: [
         {text: 'Access to customer dashboard with spending data', included: true},
         {text: 'Identify and reward top spenders', included: true},
@@ -58,10 +54,10 @@ const Pricing = () => {
       name: 'Growth Plan',
       price: {
         monthly: '₦99,999',
-        quarterly: '₦269,997',
-        yearly: '₦3,239,964'
+        quarterly: '₦89,999',
+        yearly: '₦79,999'
       },
-      description: 'Great for growing businesses with up to 500 customers.',
+      description: 'Great for growing businesses',
       features: [
         {text: 'Access to customer dashboard with spending data', included: true},
         {text: 'Identify and reward top spenders', included: true},
@@ -77,10 +73,10 @@ const Pricing = () => {
       name: 'Business Plan',
       price: {
         monthly: '₦199,999',
-        quarterly: '₦569,997',
-        yearly: '₦6,839,964'
+        quarterly: '₦189,999',
+        yearly: '₦179,999'
       },
-      description: 'For larger businesses with up to 1000 customers.',
+      description: 'For large businesses and enterprises',
       features: [
         {text: 'Access to customer dashboard with spending data', included: true},
         {text: 'Identify and reward top spenders', included: true},
@@ -159,11 +155,6 @@ const Pricing = () => {
             >
               <div className={`p-6 text-center ${plan.highlight ? 'bg-[#6c0f2a] text-white' : 'bg-white'} relative`}>
                 <h3 className={`text-xl md:text-2xl font-bold ${plan.highlight ? 'text-white' : 'text-[#6c0f2a]'}`}>{plan.name}</h3>
-                {plan.id !== 'starter' && calculateDiscount(plan, billingPeriods[plan.id]) && (
-                  <div className="absolute top-4 right-4 bg-red-500 text-white rounded-full w-14 h-14 flex items-center justify-center text-sm font-bold shadow-lg">
-                    {calculateDiscount(plan, billingPeriods[plan.id])}% OFF
-                  </div>
-                )}
                 <div className="block lg:hidden my-4">
                   <div className="flex justify-center space-x-1 mb-2">
                     <button
@@ -202,7 +193,14 @@ const Pricing = () => {
                   <span className="text-3xl md:text-4xl font-bold">{getPrice(plan, billingPeriods[plan.id])}</span>
                   <span className={`text-lg ${plan.highlight ? 'text-white' : 'text-gray-600'}`}>{getPeriod(billingPeriods[plan.id])}</span>
                 </div>
-                <p className="text-base">{plan.description}</p>
+                <p className="text-base">
+                  {plan.description}
+                  {billingPeriods[plan.id] !== 'monthly' && (
+                    <span className="block text-sm text-green-600 font-semibold mt-1">
+                      {billingPeriods[plan.id] === 'quarterly' ? 'Saves ₦120,000 annually' : 'Saves ₦240,000 annually'}
+                    </span>
+                  )}
+                </p>
               </div>
 
               {/* Content area with no extra space */}
