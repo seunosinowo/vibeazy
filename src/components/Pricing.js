@@ -3,13 +3,44 @@ import { motion } from 'framer-motion';
 
 const Pricing = () => {
   const [selectedPlan, setSelectedPlan] = useState('growth');
-  
+  const [billingPeriods, setBillingPeriods] = useState({
+    starter: 'monthly',
+    growth: 'monthly',
+    business: 'monthly'
+  });
+
+  const getPrice = (plan, period) => {
+    return plan.price[period];
+  };
+
+  const getPeriod = (period) => {
+    if (period === 'quarterly') return '/quarter';
+    if (period === 'yearly') return '/year';
+    return '/month';
+  };
+
+  const calculateDiscount = (plan, period) => {
+    if (plan.id === 'starter' || period === 'monthly') return null;
+    const monthlyPrice = parseInt(plan.price.monthly.replace(/[^\d]/g, ''));
+    const currentPrice = parseInt(plan.price[period].replace(/[^\d]/g, ''));
+    const multiplier = period === 'quarterly' ? 3 : 12;
+    const fullPrice = monthlyPrice * multiplier;
+    if (currentPrice < fullPrice) {
+      const discount = Math.round(((fullPrice - currentPrice) / fullPrice) * 100);
+      return discount > 0 ? discount : null;
+    }
+    return null;
+  };
+
   const plans = [
     {
       id: 'starter',
       name: 'Starter Plan',
-      price: '₦49,999',
-      period: '/month',
+      price: {
+        monthly: '₦49,999',
+        quarterly: '₦117,000',
+        yearly: '₦1,404,000'
+      },
       description: 'Perfect for business with up to 100 customers',
       features: [
         {text: 'Access to customer dashboard with spending data', included: true},
@@ -18,17 +49,20 @@ const Pricing = () => {
         {text: '1 branch only', included: true},
         // {text: 'Send up to 300 whatsapp promo messages per month', included: true},
         {text: 'Segment customers better using dashboard filters', included: true},
-        
+
       ],
       highlight: false
     },
     {
       id: 'growth',
       name: 'Growth Plan',
-      price: '₦99,999',
-      period: '/month',
+      price: {
+        monthly: '₦99,999',
+        quarterly: '₦269,997',
+        yearly: '₦3,239,964'
+      },
       description: 'Great for growing businesses with up to 500 customers.',
-      features: [      
+      features: [
         {text: 'Access to customer dashboard with spending data', included: true},
         {text: 'Identify and reward top spenders', included: true},
         {text: 'View customer insights: number of visits, total spend, etc.', included: true},
@@ -41,8 +75,11 @@ const Pricing = () => {
     {
       id: 'business',
       name: 'Business Plan',
-      price: '₦199,999',
-      period: '/month',
+      price: {
+        monthly: '₦199,999',
+        quarterly: '₦569,997',
+        yearly: '₦6,839,964'
+      },
       description: 'For larger businesses with up to 1000 customers.',
       features: [
         {text: 'Access to customer dashboard with spending data', included: true},
@@ -61,7 +98,7 @@ const Pricing = () => {
   return (
     <section className="py-20 bg-[#f9f2f4]">
       <div className="container mx-auto px-4 md:px-8">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,10 +110,45 @@ const Pricing = () => {
             Choose the plan that fits your business needs. All plans include core features to boost customer loyalty.
           </p>
         </motion.div>
-        
+
+        <div className="flex justify-center mb-8">
+          <div className="bg-white rounded-lg p-1 shadow-md">
+            <button
+              onClick={() => setBillingPeriods({starter: 'monthly', growth: 'monthly', business: 'monthly'})}
+              className={`px-4 py-2 rounded-md font-medium text-sm transition-colors ${
+                billingPeriods.starter === 'monthly' && billingPeriods.growth === 'monthly' && billingPeriods.business === 'monthly'
+                  ? 'bg-[#6c0f2a] text-white'
+                  : 'text-gray-700 hover:bg-gray-100'
+              }`}
+            >
+              Monthly
+            </button>
+            <button
+              onClick={() => setBillingPeriods({starter: 'quarterly', growth: 'quarterly', business: 'quarterly'})}
+              className={`px-4 py-2 rounded-md font-medium text-sm transition-colors ${
+                billingPeriods.starter === 'quarterly' && billingPeriods.growth === 'quarterly' && billingPeriods.business === 'quarterly'
+                  ? 'bg-[#6c0f2a] text-white'
+                  : 'text-gray-700 hover:bg-gray-100'
+              }`}
+            >
+              Quarterly
+            </button>
+            <button
+              onClick={() => setBillingPeriods({starter: 'yearly', growth: 'yearly', business: 'yearly'})}
+              className={`px-4 py-2 rounded-md font-medium text-sm transition-colors ${
+                billingPeriods.starter === 'yearly' && billingPeriods.growth === 'yearly' && billingPeriods.business === 'yearly'
+                  ? 'bg-[#6c0f2a] text-white'
+                  : 'text-gray-700 hover:bg-gray-100'
+              }`}
+            >
+              Yearly
+            </button>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
           {plans.map((plan, index) => (
-            <motion.div 
+            <motion.div
               key={plan.id}
               className={`rounded-2xl overflow-hidden flex flex-col ${plan.highlight ? 'border-2 border-[#6c0f2a] z-10' : 'border border-[#f0d8df]'}`}
               initial={{ opacity: 0, y: 30 }}
@@ -85,15 +157,54 @@ const Pricing = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
             >
-              <div className={`p-6 text-center ${plan.highlight ? 'bg-[#6c0f2a] text-white' : 'bg-white'}`}>
+              <div className={`p-6 text-center ${plan.highlight ? 'bg-[#6c0f2a] text-white' : 'bg-white'} relative`}>
                 <h3 className={`text-xl md:text-2xl font-bold ${plan.highlight ? 'text-white' : 'text-[#6c0f2a]'}`}>{plan.name}</h3>
+                {plan.id !== 'starter' && calculateDiscount(plan, billingPeriods[plan.id]) && (
+                  <div className="absolute top-4 right-4 bg-red-500 text-white rounded-full w-14 h-14 flex items-center justify-center text-sm font-bold shadow-lg">
+                    {calculateDiscount(plan, billingPeriods[plan.id])}% OFF
+                  </div>
+                )}
+                <div className="block lg:hidden my-4">
+                  <div className="flex justify-center space-x-1 mb-2">
+                    <button
+                      onClick={() => setBillingPeriods({...billingPeriods, [plan.id]: 'monthly'})}
+                      className={`px-3 py-1 rounded text-xs font-medium ${
+                        billingPeriods[plan.id] === 'monthly'
+                          ? 'bg-[#6c0f2a] text-white'
+                          : 'bg-gray-200 text-gray-700'
+                      }`}
+                    >
+                      Monthly
+                    </button>
+                    <button
+                      onClick={() => setBillingPeriods({...billingPeriods, [plan.id]: 'quarterly'})}
+                      className={`px-3 py-1 rounded text-xs font-medium ${
+                        billingPeriods[plan.id] === 'quarterly'
+                          ? 'bg-[#6c0f2a] text-white'
+                          : 'bg-gray-200 text-gray-700'
+                      }`}
+                    >
+                      Quarterly
+                    </button>
+                    <button
+                      onClick={() => setBillingPeriods({...billingPeriods, [plan.id]: 'yearly'})}
+                      className={`px-3 py-1 rounded text-xs font-medium ${
+                        billingPeriods[plan.id] === 'yearly'
+                          ? 'bg-[#6c0f2a] text-white'
+                          : 'bg-gray-200 text-gray-700'
+                      }`}
+                    >
+                      Yearly
+                    </button>
+                  </div>
+                </div>
                 <div className="my-4">
-                  <span className="text-3xl md:text-4xl font-bold">{plan.price}</span>
-                  <span className={`text-lg ${plan.highlight ? 'text-white' : 'text-gray-600'}`}>{plan.period}</span>
+                  <span className="text-3xl md:text-4xl font-bold">{getPrice(plan, billingPeriods[plan.id])}</span>
+                  <span className={`text-lg ${plan.highlight ? 'text-white' : 'text-gray-600'}`}>{getPeriod(billingPeriods[plan.id])}</span>
                 </div>
                 <p className="text-base">{plan.description}</p>
               </div>
-              
+
               {/* Content area with no extra space */}
               <div className="flex flex-col flex-grow">
                 <div className="bg-white p-6 flex-grow">
@@ -116,14 +227,14 @@ const Pricing = () => {
                     ))}
                   </ul>
                 </div>
-                
+
                 {/* Button placed directly under content */}
                 <div className="bg-white p-6 pt-0">
-                  <button 
+                  <button
                     className={`w-full py-3 rounded-lg font-medium text-base ${
                       selectedPlan === plan.id
                         ? 'bg-[#6c0f2a] text-white hover:bg-[#5a0d23] border-2 border-[#6c0f2a]'
-                        : plan.highlight 
+                        : plan.highlight
                           ? 'bg-[#6c0f2a] text-white hover:bg-[#5a0d23]'
                           : 'bg-[#f8e5ea] text-[#6c0f2a] hover:bg-[#f0d8df]'
                     }`}
@@ -136,7 +247,7 @@ const Pricing = () => {
             </motion.div>
           ))}
         </div>
-        
+
       </div>
     </section>
   );
